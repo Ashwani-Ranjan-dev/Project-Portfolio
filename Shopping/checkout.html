@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Checkout</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="checkout-container">
+
+<h2>Checkout</h2>
+
+<form id="checkoutForm">
+
+<input
+id="customerName"
+type="text"
+placeholder="Full Name"
+required>
+
+<input
+id="customerPhone"
+type="tel"
+placeholder="Phone Number"
+required>
+
+<textarea
+id="customerAddress"
+placeholder="Delivery Address"
+required>
+</textarea>
+
+<button type="submit">
+
+Generate Bill
+
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+document
+.getElementById("checkoutForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const customer = {
+    name : document.getElementById("customerName").value,
+    phone : document.getElementById("customerPhone").value,
+    address : document.getElementById("customerAddress").value
+};
+
+localStorage.setItem(
+    "customer" , JSON.stringify(customer)
+);
+
+window.location.href="bill.html";
+
+});
+
+</script>
+
+</body>
+
+</html>

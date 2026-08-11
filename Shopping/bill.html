@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Invoice</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="invoice">
+
+<h1>ShopEase</h1>
+
+<h2>Purchase Invoice</h2>
+
+<hr>
+
+<p><strong>Order ID :</strong>
+<span id="orderId"></span></p>
+
+<p><strong>Date :</strong>
+<span id="date"></span></p>
+
+<hr>
+
+<h3>Customer Details</h3>
+
+<p id="customerInfo"></p>
+
+<hr>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Qty</th>
+
+<th>Total</th>
+
+</tr>
+
+</thead>
+
+<tbody id="billItems">
+
+</tbody>
+
+</table>
+
+<hr>
+
+<h3 id="subtotal"></h3>
+
+<h3 id="gst"></h3>
+
+<h3 id="delivery"></h3>
+
+<h2 id="grandTotal"></h2>
+
+<button onclick="printBill()">
+Print Invoice
+</button>
+
+</div>
+
+<script src="bill.js"></script>
+
+</body>
+
+</html>
