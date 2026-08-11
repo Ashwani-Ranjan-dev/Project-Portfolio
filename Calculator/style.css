@@ -1,47 +1,388 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #f4f6f9;
-  font-family: Arial, sans-serif;
+
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.15), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(120, 70, 255, 0.18), transparent 30%),
+    #080b12;
+
+  color: white;
+  padding: 20px;
 }
 
+
+/* =========================
+   CALCULATOR
+========================= */
+
 .calculator {
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  width: 390px;
+  padding: 22px;
+
+  background: rgba(20, 24, 34, 0.92);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(20px);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: block;
+
+  color: #00d9ff;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.calculator-header h1 {
+  margin-top: 3px;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  color: #f4f7fb;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 0.65rem;
+  color: #7e8999;
+
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #00e676;
+
+  box-shadow: 0 0 10px #00e676;
+}
+
+
+/* =========================
+   DISPLAY
+========================= */
+
+.display-container {
+  padding: 17px 18px;
+
+  margin-bottom: 18px;
+
+  background: #090d14;
+
+  border-radius: 15px;
+
+  border: 1px solid rgba(0, 217, 255, 0.12);
+
+  box-shadow:
+    inset 0 3px 12px rgba(0, 0, 0, 0.5);
+}
+
+.display-label {
+  margin-bottom: 5px;
+
+  font-size: 0.58rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #657083;
 }
 
 #display {
   width: 100%;
-  height: 50px;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  text-align: right;
-  padding: 10px;
+  height: 55px;
+
   border: none;
-  border-radius: 5px;
+  outline: none;
+
+  background: transparent;
+
+  color: #eafcff;
+
+  font-size: 1.7rem;
+  font-weight: 500;
+
+  text-align: right;
+
+  font-family: "Courier New", monospace;
 }
+
+#display::placeholder {
+  color: #394352;
+}
+
+
+/* =========================
+   BUTTON GRID
+========================= */
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 70px);
-  gap: 10px;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 9px;
 }
 
-button {
-  padding: 15px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background: #444;
-  color: #fff;
+
+/* =========================
+   ALL BUTTONS
+========================= */
+
+.btn {
+  height: 58px;
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
+
+  border-radius: 13px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  color: #e7edf5;
+
   cursor: pointer;
-  transition: background 0.2s ease;
+
+  transition:
+    transform 0.12s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+
+  user-select: none;
 }
 
-button:hover {
-  background: #007acc;
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.94);
+}
+
+
+/* =========================
+   NUMBER BUTTONS
+========================= */
+
+.number {
+  background: #171d27;
+
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.number:hover {
+  background: #202936;
+
+  box-shadow:
+    0 0 15px rgba(0, 217, 255, 0.12);
+}
+
+
+/* =========================
+   FUNCTION BUTTONS
+========================= */
+
+.function {
+  background: #202631;
+
+  color: #9da8b8;
+
+  font-size: 0.82rem;
+}
+
+.function:hover {
+  background: #29313e;
+}
+
+
+/* CLEAR */
+
+.clear {
+  color: #ff6b7a;
+}
+
+.clear:hover {
+  background: rgba(255, 70, 90, 0.14);
+}
+
+
+/* DELETE */
+
+.delete {
+  color: #ffb45c;
+}
+
+
+/* =========================
+   OPERATORS
+========================= */
+
+.operator {
+  background: #102b36;
+
+  color: #00d9ff;
+
+  font-size: 1.35rem;
+
+  border: 1px solid rgba(0, 217, 255, 0.12);
+}
+
+.operator:hover {
+  background: #123c49;
+
+  box-shadow:
+    0 0 15px rgba(0, 217, 255, 0.18);
+}
+
+
+/* =========================
+   EQUAL BUTTON
+========================= */
+
+.equals {
+  background: linear-gradient(
+    135deg,
+    #00bcd4,
+    #0077ff
+  );
+
+  color: white;
+
+  font-size: 1.35rem;
+
+  box-shadow:
+    0 5px 15px rgba(0, 153, 255, 0.25);
+}
+
+.equals:hover {
+  background: linear-gradient(
+    135deg,
+    #08d5ed,
+    #1687ff
+  );
+
+  box-shadow:
+    0 0 20px rgba(0, 180, 255, 0.35);
+}
+
+
+/* =========================
+   SCIENTIFIC BUTTONS
+========================= */
+
+.scientific {
+  height: 50px;
+
+  background: #121923;
+
+  color: #aeb9c8;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  font-size: 0.9rem;
+}
+
+.scientific:hover {
+  background: #182532;
+
+  color: #00d9ff;
+
+  border-color: rgba(0, 217, 255, 0.25);
+
+  box-shadow:
+    0 0 15px rgba(0, 217, 255, 0.1);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.calculator-footer {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 17px;
+  padding: 0 4px;
+
+  font-size: 0.55rem;
+
+  letter-spacing: 1.5px;
+
+  color: #4f5b6b;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 450px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .calculator {
+    width: 100%;
+    max-width: 390px;
+
+    padding: 16px;
+
+    border-radius: 20px;
+  }
+
+  .btn {
+    height: 54px;
+  }
+
+  .scientific {
+    height: 48px;
+  }
+
+  #display {
+    font-size: 1.45rem;
+  }
 }

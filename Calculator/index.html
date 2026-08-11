@@ -3,55 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Scientific Calculator</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
   <div class="calculator">
-    <input type="text" id="display" readonly>
+
+    <!-- Calculator Header -->
+    <div class="calculator-header">
+      <div>
+        <span class="brand">SCIENTIFIC</span>
+        <h1>Calculator</h1>
+      </div>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        ONLINE
+      </div>
+    </div>
+
+    <!-- Display -->
+    <div class="display-container">
+      <div class="display-label">EXPRESSION</div>
+      <input
+        type="text"
+        id="display"
+        readonly
+        placeholder="0"
+      >
+    </div>
+
+    <!-- Buttons -->
     <div class="buttons">
-      <!-- Row 1 -->
-      <button onclick="clearDisplay()">C</button>
-      <button onclick="deleteLast()">DEL</button>
-      <button onclick="insert('(')">(</button>
-      <button onclick="insert(')')">)</button>
 
-      <!-- Row 2 -->
-      <button onclick="insert('7')">7</button>
-      <button onclick="insert('8')">8</button>
-      <button onclick="insert('9')">9</button>
-      <button onclick="insert('/')">÷</button>
+      <!-- Top Controls -->
+      <button class="btn function clear" onclick="clearDisplay()">C</button>
+      <button class="btn function delete" onclick="deleteLast()">DEL</button>
+      <button class="btn function" onclick="insert('(')">(</button>
+      <button class="btn function" onclick="insert(')')">)</button>
 
-      <!-- Row 3 -->
-      <button onclick="insert('4')">4</button>
-      <button onclick="insert('5')">5</button>
-      <button onclick="insert('6')">6</button>
-      <button onclick="insert('*')">×</button>
+      <!-- Numbers -->
+      <button class="btn number" onclick="insert('7')">7</button>
+      <button class="btn number" onclick="insert('8')">8</button>
+      <button class="btn number" onclick="insert('9')">9</button>
+      <button class="btn operator" onclick="insert('/')">÷</button>
 
-      <!-- Row 4 -->
-      <button onclick="insert('1')">1</button>
-      <button onclick="insert('2')">2</button>
-      <button onclick="insert('3')">3</button>
-      <button onclick="insert('-')">−</button>
+      <button class="btn number" onclick="insert('4')">4</button>
+      <button class="btn number" onclick="insert('5')">5</button>
+      <button class="btn number" onclick="insert('6')">6</button>
+      <button class="btn operator" onclick="insert('*')">×</button>
 
-      <!-- Row 5 -->
-      <button onclick="insert('0')">0</button>
-      <button onclick="insert('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="insert('+')">+</button>
+      <button class="btn number" onclick="insert('1')">1</button>
+      <button class="btn number" onclick="insert('2')">2</button>
+      <button class="btn number" onclick="insert('3')">3</button>
+      <button class="btn operator" onclick="insert('-')">−</button>
+
+      <button class="btn number zero" onclick="insert('0')">0</button>
+      <button class="btn number" onclick="insert('.')">.</button>
+      <button class="btn equals" onclick="calculate()">=</button>
+      <button class="btn operator" onclick="insert('+')">+</button>
 
       <!-- Scientific Functions -->
-      <button onclick="insert('Math.sin(')">sin</button>
-      <button onclick="insert('Math.cos(')">cos</button>
-      <button onclick="insert('Math.tan(')">tan</button>
-      <button onclick="insert('Math.sqrt(')">√</button>
+      <button class="btn scientific" onclick="insert('Math.sin(')">
+        <span>sin</span>
+      </button>
 
-      <button onclick="insert('Math.log(')">log</button>
-      <button onclick="insert('Math.pow(')">xʸ</button>
-      <button onclick="insert('Math.PI')">π</button>
-      <button onclick="insert('Math.E')">e</button>
+      <button class="btn scientific" onclick="insert('Math.cos(')">
+        <span>cos</span>
+      </button>
+
+      <button class="btn scientific" onclick="insert('Math.tan(')">
+        <span>tan</span>
+      </button>
+
+      <button class="btn scientific" onclick="insert('Math.sqrt(')">
+        <span>√</span>
+      </button>
+
+      <button class="btn scientific" onclick="insert('Math.log(')">
+        <span>log</span>
+      </button>
+
+      <button class="btn scientific" onclick="insert('Math.pow(')">
+        <span>xʸ</span>
+      </button>
+
+      <button class="btn scientific" onclick="insert('Math.PI')">
+        <span>π</span>
+      </button>
+
+      <button class="btn scientific" onclick="insert('Math.E')">
+        <span>e</span>
+      </button>
+
     </div>
+
+    <!-- Footer -->
+    <div class="calculator-footer">
+      <span>SCIENTIFIC MODE</span>
+      <span>v1.0</span>
+    </div>
+
   </div>
+
   <script src="script.js"></script>
+
 </body>
 </html>
